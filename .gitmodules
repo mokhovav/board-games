@@ -1,0 +1,5 @@
+[submodule "base-project"]
+	path = base-project
+	url = https://github.com/mokhovav/base-project.git
+	branch = develop
+
