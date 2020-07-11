@@ -10,4 +10,46 @@ public class Board {
     private Items items;
     private Links links;
     private Dices dices;
+
+    public Board() {
+    }
+
+    public Board(Fields fields, Items items, Links links, Dices dices) {
+        this.fields = fields;
+        this.items = items;
+        this.links = links;
+        this.dices = dices;
+    }
+
+    public Fields getFields() {
+        return fields;
+    }
+
+    public void setFields(Fields fields) {
+        this.fields = fields;
+    }
+
+    public Items getItems() {
+        return items;
+    }
+
+    public void setItems(Items items) {
+        this.items = items;
+    }
+
+    public Links getLinks() {
+        return links;
+    }
+
+    public void setLinks(Links links) {
+        this.links = links;
+    }
+
+    public Dices getDices() {
+        return dices;
+    }
+
+    public void setDices(Dices dices) {
+        this.dices = dices;
+    }
 }

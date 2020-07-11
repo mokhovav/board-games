@@ -13,4 +13,8 @@ public class Field extends Element{
     public Field(String name) {
         super(name);
     }
+
+    public Field(String name, Properties properties) {
+        super(name, properties);
+    }
 }

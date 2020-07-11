@@ -14,6 +14,7 @@ public class Links extends ArrayList<Link> {
         return Optional.ofNullable(link)
                 .filter(l -> l.getFrom() != null)
                 .filter(l -> l.getTo() != null)
+                .filter(l -> l.getFrom() != l.getTo())
                 .filter(l -> l.getDirection() != null)
                 .map(super::add)
                 .orElse(false);
