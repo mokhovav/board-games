@@ -1,0 +1,13 @@
+package com.mokhovav.boardgames.board;
+
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Component;
+
+import java.util.ArrayList;
+import java.util.Optional;
+
+@Component
+@Scope(value = "prototype")
+public class Items extends Elements<Item> {
+
+}

@@ -1,1 +1,4 @@
 rootProject.name = 'board-games'
+
+//include 'base-project'
+//project(':base-project').setBuildFileName('export.gradle')
