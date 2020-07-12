@@ -1,55 +1,59 @@
 package com.mokhovav.boardgames.boardServices;
 
+import com.mokhovav.boardgames.board.Dices;
+import com.mokhovav.boardgames.board.Fields;
+import com.mokhovav.boardgames.board.Items;
+import com.mokhovav.boardgames.board.Links;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 @Component
 @Scope(value = "prototype")
 public class BoardData {
-    private String fields;
-    private String items;
-    private String links;
-    private String dices;
+    private Fields fields;
+    private Items items;
+    private LinksData linksData;
+    private Dices dices;
 
     public BoardData() {
     }
 
-    public BoardData(String fields, String items, String links, String dices) {
+    public BoardData(Fields fields, Items items, LinksData linksData, Dices dices) {
         this.fields = fields;
         this.items = items;
-        this.links = links;
+        this.linksData = linksData;
         this.dices = dices;
     }
 
-    public String getFields() {
+    public Fields getFields() {
         return fields;
     }
 
-    public void setFields(String fields) {
+    public void setFields(Fields fields) {
         this.fields = fields;
     }
 
-    public String getItems() {
+    public Items getItems() {
         return items;
     }
 
-    public void setItems(String items) {
+    public void setItems(Items items) {
         this.items = items;
     }
 
-    public String getLinks() {
-        return links;
+    public LinksData getLinksData() {
+        return linksData;
     }
 
-    public void setLinks(String links) {
-        this.links = links;
+    public void setLinksData(LinksData linksData) {
+        this.linksData = linksData;
     }
 
-    public String getDices() {
+    public Dices getDices() {
         return dices;
     }
 
-    public void setDices(String dices) {
+    public void setDices(Dices dices) {
         this.dices = dices;
     }
 }

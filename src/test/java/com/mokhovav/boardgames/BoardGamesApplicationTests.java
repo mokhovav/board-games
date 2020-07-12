@@ -104,37 +104,33 @@ class BoardGamesApplicationTests {
         Field f = (Field) elementService.jSonToElement(elementService.elementToJSon(field1), Field.class);
         assertEquals(elementService.elementToJSon(field1), elementService.elementToJSon(f));
 
-        LinkData linkData1 = linkService.linkToLinkData(link1);
-        LinkData linkData2 = linkService.jSonToLinkData(linkService.linkToJSon(link1));
-        assertEquals(linkData1.getFrom(), linkData2.getFrom());
-        assertEquals(linkData1.getTo(), linkData2.getTo());
-        assertEquals(linkData1.getDirection(), linkData2.getDirection());
+        LinksData linksData = linkService.linksToLinksData(links);
+        Links newLinks = linkService.linksDataToLinks(linksData, fields);
 
-        Link res = linkService.jSonToLink(linkService.linkToJSon(link1), fields);
-        assertEquals("field1", res.getFrom().getName());
-        assertEquals("field2", res.getTo().getName());
-        assertEquals(Direction.BOTH, res.getDirection());
+        assertEquals(links.get(0).getFrom(), newLinks.get(0).getFrom());
+        assertEquals(links.get(0).getTo(), newLinks.get(0).getTo());
+        assertEquals(links.get(0).getDirection(), newLinks.get(0).getDirection());
+        assertEquals(links.get(0).getProperties(), newLinks.get(0).getProperties());
 
-        LinksData linksData1 = linkService.linksToLinksData(links);
-        LinksData linksData2 = linkService.jSonToLinksData(linkService.linksToJSon(links));
-        assertEquals(linksData1.get(0).getFrom(),linksData2.get(0).getFrom());
-        assertEquals(linksData1.get(0).getTo(),linksData2.get(0).getTo());
-        assertEquals(linksData1.get(0).getDirection(),linksData2.get(0).getDirection());
-        assertEquals(linksData1.get(1).getFrom(),linksData2.get(1).getFrom());
-        assertEquals(linksData1.get(1).getTo(),linksData2.get(1).getTo());
-        assertEquals(linksData1.get(1).getDirection(),linksData2.get(1).getDirection());
-
-        Links result = linkService.jSonToLinks(linkService.linksToJSon(links), fields);
-        assertEquals("field1", result.get(0).getFrom().getName());
-        assertEquals("field2", result.get(0).getTo().getName());
-        assertEquals(Direction.BOTH, result.get(0).getDirection());
-        assertEquals("field2", result.get(1).getFrom().getName());
-        assertEquals("field3", result.get(1).getTo().getName());
-        assertEquals(Direction.BOTH, result.get(1).getDirection());
+        assertEquals(links.get(1).getFrom(), newLinks.get(1).getFrom());
+        assertEquals(links.get(1).getTo(), newLinks.get(1).getTo());
+        assertEquals(links.get(1).getDirection(), newLinks.get(1).getDirection());
+        assertEquals(links.get(1).getProperties(), newLinks.get(1).getProperties());
     }
 
     @Test
     void boardServiceTest(){
+        Field field1 = new Field("field1");
+        Field field2 = new Field("field2");
+        Field field3 = new Field("field3");
+        fields.add(field1);
+        fields.add(field2);
+        fields.add(field3);
+        Link link1 = new Link(field1,field2);
+        Link link2 = new Link(field2,field3);
+        links.add(link1);
+        links.add(link2);
+
         Item item1 = new Item("item1");
         Item item2 = new Item("item2");
         items.add(item1);
@@ -146,7 +142,8 @@ class BoardGamesApplicationTests {
         dices.add(dice2);
 
         Board board = new Board(fields, items, links, dices);
-        System.out.println(boardService.boardToJSon(board));
+        String result = boardService.boardToJSon(board);
+        assertEquals(result,boardService.boardToJSon(boardService.jSonToBoard(result)));
     }
 
 }
