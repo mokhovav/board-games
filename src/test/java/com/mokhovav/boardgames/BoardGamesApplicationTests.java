@@ -1,5 +1,7 @@
 package com.mokhovav.boardgames;
 
+import com.mokhovav.base.databases.SQL.SQLService;
+import com.mokhovav.base.databases.SQL.entities.BaseUser;
 import com.mokhovav.boardgames.board.*;
 import com.mokhovav.boardgames.boardServices.*;
 import org.junit.jupiter.api.Test;
@@ -28,6 +30,8 @@ class BoardGamesApplicationTests {
     ElementService elementService;
     @Autowired
     BoardService boardService;
+    @Autowired
+    SQLService sqlService;
 
     @Test
     void contextLoads() {
@@ -144,6 +148,7 @@ class BoardGamesApplicationTests {
         Board board = new Board(fields, items, links, dices);
         String result = boardService.boardToJSon(board);
         assertEquals(result,boardService.boardToJSon(boardService.jSonToBoard(result)));
+
     }
 
 }

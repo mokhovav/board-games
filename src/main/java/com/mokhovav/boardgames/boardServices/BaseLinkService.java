@@ -1,10 +1,6 @@
 package com.mokhovav.boardgames.boardServices;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.mokhovav.boardgames.board.Field;
-import com.mokhovav.boardgames.board.Fields;
-import com.mokhovav.boardgames.board.Link;
-import com.mokhovav.boardgames.board.Links;
+import com.mokhovav.boardgames.board.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

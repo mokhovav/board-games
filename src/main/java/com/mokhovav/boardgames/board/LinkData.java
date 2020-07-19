@@ -1,4 +1,4 @@
-package com.mokhovav.boardgames.boardServices;
+package com.mokhovav.boardgames.board;
 
 import com.mokhovav.boardgames.board.Direction;
 import com.mokhovav.boardgames.board.Field;

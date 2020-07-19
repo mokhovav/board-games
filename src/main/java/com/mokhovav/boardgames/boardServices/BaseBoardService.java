@@ -2,7 +2,8 @@ package com.mokhovav.boardgames.boardServices;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.mokhovav.boardgames.board.*;
+import com.mokhovav.boardgames.board.Board;
+import com.mokhovav.boardgames.board.BoardData;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -10,8 +11,11 @@ import java.util.Optional;
 
 @Service
 public class BaseBoardService implements BoardService {
-    @Autowired ElementService elementService;
-    @Autowired LinkService linkService;
+    @Autowired
+    ElementService elementService;
+    @Autowired
+    LinkService linkService;
+
     private ObjectMapper mapper = new ObjectMapper();
 
     @Override
@@ -54,7 +58,5 @@ public class BaseBoardService implements BoardService {
                     linkService.linksToLinksData(board.getLinks()),
                     board.getDices()
             );
-
-//        return null;
     }
 }

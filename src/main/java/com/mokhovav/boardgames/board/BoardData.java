@@ -1,9 +1,6 @@
-package com.mokhovav.boardgames.boardServices;
+package com.mokhovav.boardgames.board;
 
-import com.mokhovav.boardgames.board.Dices;
-import com.mokhovav.boardgames.board.Fields;
-import com.mokhovav.boardgames.board.Items;
-import com.mokhovav.boardgames.board.Links;
+import com.mokhovav.boardgames.board.*;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
